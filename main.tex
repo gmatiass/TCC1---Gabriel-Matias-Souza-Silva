@@ -1,0 +1,161 @@
+%Tipo de documento ABNTEX2
+\documentclass[12pt,openright,oneside,a4paper,
+chapter=TITLE,  % títulos de capítulos convertidos em letras maiúsculas
+section=TITLE,  % títulos de seções convertidos em letras maiúsculas
+subsection=TITLE, % títulos de subseções convertidos em letras maiúsculas
+subsubsection=TITLE, % títulos de subsubseções em letras maiúsculas
+subsubsubsection=TITLE, % títulos de subsubsubseções em letras maiúsculas
+english,french,spanish,brazil]{abntex2}
+%É interessante observar que a ABNT NBR 14724:2011 (seção 5.1) recomenda que os documentos sejam impressos no anverso e no verso das folhas. Isso é obtido com a opção twoside.
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%Pacotes para língua portuguesa do Brasil:
+\usepackage{ifxetex}
+\ifxetex
+    \usepackage{fontspec}
+    \defaultfontfeatures{Ligatures={TeX}}
+\else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+\fi
+
+%Observação: Quando um documento é compilado com xelatex, os pacotes inputenc e fontenc não devem ser incluídos ao preâmbulo do documento. Ao invés desses pacotes, geralmente fontspec é usado. O código anterior de preâmbulo torna flexível a compilação do documento, que pode tanto ser realizada da forma tradicional com pdflatex quanto com xelatex, uma vez que inclui seletivamente os pacotes adequados para cada compilador (página 14 do link http://mirror.hmc.edu/ctan/macros/latex/contrib/abntex2/doc/abntex2.pdf).
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%In formações do projeto de TCC:
+\titulo{Projeto De Um Robô Móvel Integrando Raspberry Pi com o Sistema De Visão Computacional OPENCV}
+\autor{Gabriel Matias Souza Silva}
+\orientador{Prof. Dr. Marcos Roberto Bombacini}
+\coorientador{}
+\data{2020} % Apenas o ano
+\local{Toledo} % Apenas a cidade
+
+% Não alterar o preambulo!:
+\preambulo{Projeto de Trabalho de Conclusão de Curso apresentado à disciplina de Trabalho de Conclusão de Curso 1 do Curso de Engenharia Eletrônica da Universidade Tecnológica Federal do Paraná - UTFPR Campus Toledo, como requisito parcial para a obtenção do título de Bacharel em Engenharia Eletrônica.}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%Pacotes adicionais:
+\usepackage{amssymb}
+\usepackage{tabto}
+\usepackage{hyperref}
+\usepackage[%
+    alf,
+    abnt-emphasize=bf,
+    bibjustif,
+    recuo=0cm,
+    abnt-url-package=url,       % Utiliza o pacote url
+    abnt-refinfo=yes,           % Utiliza o estilo bibliográfico abnt-refinfo
+    abnt-etal-cite=3,
+    abnt-etal-list=3,
+    abnt-thesis-year=final
+]{abntex2cite} 
+\usepackage{graphicx}
+\usepackage{nomencl} % Para a lista breviaturas e siglas
+\makenomenclature    % Para a lista breviaturas e siglas
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%insira novos pacotes aqui:
+\usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção.
+\usepackage{multirow} % Pacote de tabulação para tabelas
+\usepackage{bm}
+\usepackage{lastpage} % Usado por abntex2-fichacatalografica.tex
+\usepackage[font=small,labelfont=bf,textfont=bf]{caption} % Legendas de floats em tamanho 10pt e negrito
+\usepackage{listings}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{upgreek}
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%Outras configurações:
+
+% "Por padrão, uma versão sem serifas da fonte corrente do documento é utilizada para os títulos das divisões. Você pode customizar a fonte dos títulos dos capítulos alterando os comandos como no exemplo a seguir, para que seja utilizada a fonte Computer Modern com tamanho maior do que o utilizado por padrão" (manual do abntex2).
+\renewcommand{\ABNTEXchapterfont}{\fontfamily{cmr}\fontseries{b}\selectfont}
+\renewcommand{\ABNTEXchapterfontsize}{\HUGE}
+
+% Para criação de quadros
+% Novo list of (listings) para QUADROS
+
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listofquadrosname}{Lista de quadros}
+
+\newfloat[chapter]{quadro}{loq}{\quadroname}
+\newlistof{listofquadros}{loq}{\listofquadrosname}
+\newlistentry{quadro}{loq}{0}
+
+% configurações para atender às regras da ABNT
+\setfloatadjustment{quadro}{\centering}
+\counterwithout{quadro}{chapter}
+\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
+
+% Configuração de posicionamento padrão:
+\setfloatlocations{quadro}{hbtp}
+
+% Abreviação de microcontrolador
+\newcommand{\micro}{$\mathrm{\upmu C}$}
+
+%\setlength\afterchapskip{\lineskip} // Espaçamento de 1,5 entre o título do capítulo e corpo do texto
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%Início do documento:
+\begin{document}
+
+    %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    % Elementos pré-textuais
+    \pretextual
+
+    % Imprime capa e pula sua numeração
+    \pagenumbering{gobble} % Remove a visualização da numeração das páginas e reinicia em 1 
+    \clearpage
+    \thispagestyle{empty}
+    \imprimircapa
+    \clearpage
+    \pagenumbering{arabic}% Numeração arábica (e reinicia em 1)
+
+    % Imprime a folha de rosto (padrão do abntex2)
+    \imprimirfolhaderosto*
+
+    % Insere a ficha catalográfica (Obrigatório)
+    %\input{abntex2-fichacatalografica.tex}
+
+    % Insere a folha de aprovação
+    %\input{folha-de-aprovacao.tex}
+
+    % Insere o resumo em pt-br
+    \input{Caps/resumo.tex} %resumo (deve conter resumo)
+
+    %Lista de figuras
+    \pdfbookmark[0]{\listfigurename}{lof}
+    \listoffigures* 
+    \cleardoublepage
+
+    %Lista de tabelas
+    %\listoftables
+
+    %lista de abreviaturas e siglas
+    \renewcommand{\nomname}{\listadesiglasname}
+    \pdfbookmark[0]{\nomname}{las}
+    \printnomenclature
+    \cleardoublepage
+
+    % Lista de símbolos
+    \input{simbolos.tex}
+
+    %Sumário
+    \pdfbookmark[0]{\contentsname}{toc}
+    \tableofcontents*
+    \cleardoublepage
+    
+    %+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    % Elementos textuais
+    \textual
+
+    \include{Caps/intro} %introdução (deve conter objetivos e justificativa)
+    \include{Caps/ref} %referencial teórico
+    \include{Caps/mat_met} %materiais e métodos
+    %\include{Caps/objetivos.tex}
+    \include{Caps/results} %resultados esperados
+    \include{Caps/crono} %cronograma
+    \bibliography{references}
+    
+\end{document}
