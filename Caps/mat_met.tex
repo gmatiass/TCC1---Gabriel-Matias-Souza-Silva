@@ -8,9 +8,9 @@ Nesta seção serão apresentados os materiais e métodos que serão utilizados 
 
 %================================================================================
 \section{Visão geral do sistema proposto}
-\label{sec:visao}
+\label{sec:visaoGeralSist}
 
-O sistema proposto consiste em um robô móvel autônomo (RMA) composto por um raspberry pi, um arduino, sensores e atuadores fixados em um chassi redondo. O raspberry pi tem a finalidade de obter e processar a imagem a partir de um método de visão computacional da biblioteca OPENCV, adquirindo a informação necessária e transmitindo-a para o arduino, onde o sistema de controle estará embarcado e atuará nos motores de acordo com a movimentação necessária. Um conjunto de sensores ultrassônicos será responsável pela percepção de algum objeto que poderá impedir a trajetória inicialmente definida.
+O sistema proposto consiste em um robô móvel autônomo (RMA) composto por um Raspberry Pi, um Arduino, sensores e atuadores fixados em um chassi redondo. O Raspberry Pi tem a finalidade de obter e processar a imagem a partir de um método de visão computacional da biblioteca OPENCV, adquirindo a informação necessária e transmitindo-a para o Arduino, onde o sistema de controle estará embarcado e atuará nos motores de acordo com a movimentação necessária. Um conjunto de sensores ultrassônicos será responsável pela percepção de algum objeto que poderá impedir a trajetória inicialmente definida.
 
 Na Figura~\ref{fig:sistema-proposto} pode-se observar um esboço dos cargos de cada placa no sistema.
 
@@ -26,11 +26,11 @@ Na Figura~\ref{fig:sistema-proposto} pode-se observar um esboço dos cargos de c
 
 %================================================================================
 \section{Arduino}
-\label{sec:arduino}
+\label{sec:Arduino}
 
-O arduino consiste em uma plataforma de prototipagem eletrônica com placa única e hardware livre. É projetado com um microcontrolador RISC Atmel AVR de chip único, com suporte embutido de entradas e saídas e linguagem de programação padrão que é essencialmente C/C++. Este pode receber sinais elétricos, analisá-los e tomar decisões para a ação dos atuadores a ele conectados, como relés, motores, servomotores, entre outros.
+O Arduino consiste em uma plataforma de prototipagem eletrônica com placa única e hardware livre. É projetado com um microcontrolador RISC Atmel AVR de chip único, com suporte embutido de entradas e saídas e linguagem de programação padrão que é essencialmente C/C++. Este pode receber sinais elétricos, analisá-los e tomar decisões para a ação dos atuadores a ele conectados, como relés, motores, servomotores, entre outros.
 
-Neste projeto será utilizado um arduino UNO, mostrado na Figura~\ref{fig:arduino-uno}, que possui 14 pinos de entrada/saída digital (dos quais 6 podem ser usados como saídas PWM), 6 entradas analógicas, um cristal oscilador de 16MHz, uma porta de conexão universal (USB - \textit{Universal Serial Bus}), uma entrada de alimentação e um botão de reset.
+Neste projeto será utilizado um Arduino UNO, mostrado na Figura~\ref{fig:arduino-uno}, que possui 14 pinos de entrada/saída digital (dos quais 6 podem ser usados como saídas PWM), 6 entradas analógicas, um cristal oscilador de 16MHz, uma porta de conexão universal (USB - \textit{Universal Serial Bus}), uma entrada de alimentação e um botão de reset.
 
 \begin{figure}[!hbtp]
   \centering
@@ -41,7 +41,7 @@ Neste projeto será utilizado um arduino UNO, mostrado na Figura~\ref{fig:arduin
 \end{figure}
 \footnotetext{Disponível em: \url{https://uploads.filipeflop.com/2014/09/01.png}. Acesso em: 8 set. 2020.}
 
-Para o software será utilizado o ambiente de desenvolvimento integrado (IDE - \textit{Integrated Development Environment}) disponibilizado pelo próprio arduino para download em seu site oficial.
+Para o software será utilizado o ambiente de desenvolvimento integrado (IDE - \textit{Integrated Development Environment}) disponibilizado pelo próprio Arduino para download em seu site oficial.
 
 \nomenclature{IDE}{\textit{Integrated Development Environment}}
 \nomenclature{USB}{\textit{Universal Serial Bus}}
@@ -50,11 +50,11 @@ Para o software será utilizado o ambiente de desenvolvimento integrado (IDE - \
 \section{Raspberry Pi}
 \label{sec:raspberrypi}
 
-Raspberry Pi é um computador de placa única de tamanho reduzido que se conecta com periféricos. O dispositivo foi criado no Reino Unido pela Fundação Raspberry Pi, uma organização sem fins lucrativos focada na promoção e no ensino de ciência da computação básica para jovens em escolas e universidades da Europa, com produtos de preço acessível. A Fundação nasceu em 2006, quando um grupo de cientistas do Laboratório de Computação da Universidade de Cambridge, no Reino Unido começou a trabalhar em um microcomputador baseado no Atmel ATmega644, que serviria de base para o Raspberry Pi.
+Raspberry Pi é um computador de placa única de tamanho reduzido que se conecta com periféricos. O dispositivo foi criado no Reino Unido pela Fundação Raspberry Pi, uma organização sem fins lucrativos, focada na promoção e no ensino de ciência da computação básica para jovens em escolas e universidades da Europa, com produtos de preço acessível. A Fundação nasceu em 2006, quando um grupo de cientistas do Laboratório de Computação da Universidade de Cambridge, no Reino Unido começou a trabalhar em um microcomputador baseado no Atmel ATmega644, que serviria de base para o Raspberry Pi.
 
 Ele é um mini-microcomputador que, no exíguo espaço equivalente a um cartão de crédito, abriga processador, processador gráfico, \textit{slot} para cartões de memória, interface USB, uma interface condutiva digital de áudio e vídeo que permite transmitir dados não comprimidos (HDMI - \textit{High-Definition Multimedia Interface}) e  seus respectivos controladores. Além disso, ele também apresenta memória RAM, entrada de energia e barramentos de expansão.
 
-Como visto na Figura~\ref{fig:RaspberryPi-CAM} ele suporta diversos tipos de conectividade e possui quarenta pinos de prósito geral entrada/saída.
+Como visto na Figura~\ref{fig:RaspberryPi-CAM}, ele suporta diversos tipos de conectividade e possui quarenta pinos de propósito geral entrada/saída.
 
 \begin{figure}[!hbtp]
   \centering
@@ -71,7 +71,7 @@ Como visto na Figura~\ref{fig:RaspberryPi-CAM} ele suporta diversos tipos de con
 \section{Robô Móvel}
 \label{sec:robomovel}
 
-Os robôs estão presentes no dia a dia da humanidade de diversas formas, seja ela em processos industriais, residências ou internet bot (softwares para simulação de ação humana). Ao longo dos últimos anos o interesse está em volta dos RMAs, capazes de identificar e se deslocar no ambiente que estão inseridos. Estes são classificados de acordo com o meio em que se movem, sendo ele terrestres, subaquáticos ou aéreos.
+Os robôs estão presentes no dia a dia da humanidade de diversas formas, seja ela em processos industriais, residências ou internet bot (softwares para simulação de ação humana). Ao longo dos últimos anos o interesse está em volta dos RMAs, capazes de identificar e se deslocar no ambiente que estão inseridos. Estes são classificados de acordo com o meio em que se movem, sendo ele terrestre, subaquático ou aéreo.
 
 Quando se projeta um robô móvel deve se considerar o tipo de ambiente que ele atuará \cite{rogeralex1999}. Estes ambientes são classificados em estruturados, semi-estruturados e não-estruturados. Em um ambiente estruturado, o robô tem conhecimento prévio da quantidade e localização dos objetos. Logo, um ambiente que não é alterado, resultando em um mapa fixo de rotas possíveis do robô. Um ambiente semi-estruturado é considerado fechado e possui terreno não acidentado, mas seus limites são desconhecidos. Por fim, em um ambiente não-estruturado, o robô não possui nenhum conhecimento a respeito dos objetos ou terreno, podendo ser constantemente modificado. Exige-se então um robô com maior autonomia, capaz de se adequar ao ambiente dinâmico.
 
@@ -106,11 +106,11 @@ Os sensores ultrassônicos emitem energia sonora em cones, conforme a Figura~\re
 A visão é o sentido mais poderoso e complexo do ser humano. É através dela que ele recebe uma grande quantidade de informações a respeito do mundo que o cerca, o que facilita interagir inteligentemente com o ambiente dinâmico. Utilizando informações visuais, o homem é capaz de estimar a posição de objetos (relativa a ele mesmo ou relativa a outros objetos), identificar formas, perceber movimentos e estimar dimensões. Tudo isso sem contato direto com os objetos \cite{rogeralex1999}.
 Constantemente, há o empenho de pesquisadores para prover aos RMAs um sistema de sensoriamento capaz de desempenhar as funções da visão humana, porém ainda estão longe de obter a precisão e velocidade de processamento de informações.
 
-Um sensor de imagem, comporta-se como a retina dos olhos, capta a luminosidade das imagens que são projetadas sobre ele continuamente e dá início ao processo de captura de uma instância ou de uma sequência de instâncias da imagem consecutivamente. Trata-se de um chip que pode contar com dezenas de milhões de transdutores fotossensíveis, cada um deles capaz de converter a energia luminosa de um ponto da imagem em carga elétrica para ser lida ou gravada posteriormente na forma de imagem digitalizada em valores numéricos. Na Figura~\ref{fig:sensor-camRaspberry} tem-se um exemplo de câmera compatível com Raspberry PI. 
+Um sensor de imagem, comporta-se como a retina dos olhos, capta a luminosidade das imagens que são projetadas sobre ele continuamente e dá início ao processo de captura de uma instância ou de uma sequência de instâncias da imagem consecutivamente. Trata-se de um chip que pode contar com dezenas de milhões de transdutores fotossensíveis, cada um deles é capaz de converter a energia luminosa de um ponto da imagem em carga elétrica para ser lida ou gravada posteriormente na forma de imagem digitalizada em valores numéricos. Na Figura~\ref{fig:sensor-camRaspberry} tem-se um exemplo de câmera compatível com Raspberry Pi. 
 
 \begin{figure}[!hbtp]
   \centering
-   \caption{Câmera compatível com Raspberry PI}
+   \caption{Câmera compatível com Raspberry Pi}
     \includegraphics[width = 0.8\textwidth]{Caps/Figs/mat-met/CamRaspberry.jpg}
    \label{fig:sensor-camRaspberry}
     \fonte{Site\protect\footnotemark}
