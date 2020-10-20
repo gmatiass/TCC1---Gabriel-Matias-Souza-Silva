@@ -2,15 +2,37 @@
 %\setlength{\afterchapskip}{-\baselineskip} // Espaçamento de 1,5 entre o título do capítulo e corpo do texto
 \label{chap:intro}
 
+Os sistemas de visão computacional estão presentes em diversas áreas, sendo elas medicina, análise de impressões digitais, sensoriamento remoto, robótica móvel, entre outras. O sucesso obtido pelo seu grande poder de utilização tem sido relevante para o constante desenvolvimento destas tecnologias.
+
 Vale trazer uma definição clássica: "Visão computacional é a ciência e tecnologia das máquinas que enxergam. Ela desenvolve teoria e tecnologia para a construção de sistemas artificiais que obtém informação de imagens ou quaisquer dados multi-dimensionais"~\cite{antonello2014introduccao}.
+
+Visão computacional foi definida como sendo o conjunto de técnicas computacionais para estimar ou explicitar as propriedades geométricas e dinâmicas do mundo tridimensional a partir de imagens \cite{alves2005estudo}.
+
+Devido a crescente automatização dos processos produtivos, busca-se tornar os sistemas computacionais e de robótica capazes de tornar automática a execução de tarefas complexas \cite{rudek2001visao}.
+
+Sabe-se que a visão é a principal forma de obtenção de informações do ambiente para a maioria dos seres vivos. A imagem é formada na mente a partir dos olhos, que funcionam como sensores de luminosidade, e é processada pelo cérebro que determina a ação a ser tomada. Por exemplo, em um movimento para se pegar um copo a visão tem papel fundamental junto com a coordenação motora \cite{alves2005estudo}. É perceptível que muitas ações realizadas no dia a dia são extremante complicadas de se fazer sem o advento da visão.
+
+Para visão computacional, em lugar de olhos temos câmeras como sensores de obtenção de imagens digitais. Estas imagens passam por um processamento digital onde técnicas computacionais tiram as informações desejadas do ambiente, variando de acordo com o objetivo da aplicação. Para a robótica, é comum a utilização na identificação de objetos, localização e locomoção. Diversas técnicas de reconhecimento de imagens, tem sido apresentadas na literatura e geralmente são validadas através de protótipo de aplicações, pois em um ambiente industrial, raramente obtém-se as condições ideais de iluminação, contraste, posicionamento correto da peça, e do ângulo de obtenção da imagem, além de outros fatores externos que dificultam a interpretação de uma cena. Uma imagem digital pode conter várias informações, que deverão ser tratadas em diferentes etapas da produção. Estas informações impossibilitam que imagens diferentes possam ser tratadas de uma forma única, isto é, imagens diferentes possuem requisitos de programação diferentes \cite{rudek2001visao}.
+
+Portanto, temos a primeira etapa de desenvolvimento e utilização de um sistema de visão computacional, a definição do problema. Essa e as demais etapas serão apresentadas no Capítulo~\ref{chap:refteorico}.
 
 %================================================================================
 \section{Justificativa}
 \label{sec:justi}
 
+Este projeto visa dotar o robô com visão computacional e torná-lo autônomo, reduzindo o custo de uma câmera presente no sistema tradicional de triangulação.
+
 %================================================================================
 \section{Objetivos}
 \label{sec:objt}
+
+O principal objetivo deste trabalho é projetar e implementar um sistema de visão artificial computacional para um robô móvel autônomo. Desse modo, há outros objetivos que compõem este trabalho. Estes objetivos específicos são:
+
+\begin{itemize}
+    \item Desenvolver um algoritmo de processamento de imagens e implementá-lo no Raspberry Pi;
+    \item Desenvolver um algoritmo de controle e implementá-lo no Arduino;
+    \item Construir e testar um robô móvel autônomo.
+\end{itemize}
 
 
 
