@@ -58,14 +58,43 @@ De forma análoga, a perda de informações ou deformações, podem ser ocasiona
 As técnicas de reconhecimento de padrões, tratam da identificação de partes da imagem que possuem semelhanças. Uma grande quantidade de ferramentas matemáticas e computacionais, tem sido desenvolvidas para permitir que objetos possam ser extraídos e agrupados em classes específicas de informações. Uma boa representação da forma do objeto, gera facilidades para que ele seja armazenado, transmitido, comparado, reconhecido ou mesmo entendido. A representação deve ser gerada de acordo com regras simples e precisas. Geralmente uma forma é descrita em termos de número de componentes, primitivas e relacionamentos entre estes componentes~\cite{rudek2001visao}.
 
 %================================================================================
-\section{OPENCV}
+\section{Métodos de Visão Computacional}
 \label{sec:openCV}
 
+Diversas técnicas para a segmentação de imagens em sistemas de visão computacional foram desenvolvidas de acordo com o objetivo do RMA. Algumas utilizam duas câmeras e outros apenas uma, e estas podem estar dispostas fixas ao robô ou no ambiente. \citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), propõe um sistema onde duas câmeras são dispostas no ambiente e executam uma triangulação. Ainda cita que, \citeauthor{souza2003desenvolvimento} (\citeyear{souza2003desenvolvimento}) propõe um sistema baseado na limiarização das cores dos componentes da imagem através das proporções de seus componentes vermelho, verde e azul, e; \citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), utilizam os componentes vermelho, verde e azul dos pixels para obter o tom, saturação, e a intensidade das cores, a fim de efetuar a limiarização sobre este último espaço de valores.
+
+\subsection{Triangulação com Câmeras no Ambiente}
+\label{subsec:triangulacao}
+
+Uma das propriedades mais relevantes deste sistema é o fato de que ele opera extraindo imagens a partir de duas câmeras. Uma delas é posicionada perpendicularmente ao plano de operação do robô e outra de forma inclinada. O interesse em uma segunda câmera com posição inclinada é, além de tornar a análise da cena mais robusta, tornar possível a detecção de obstáculos finos e alongados verticalmente, o que poderia ser tratado como ruído e passar despercebido no sistema de visão \cite{andrade2006sistema}.
+
+A princípio, a imagem capturada pela câmera é pré-processada pelo sistema, visando eliminar seu fundo. Para isso, pode-se utilizar técnicas de limiarização, que é o processo de segmentação de imagens que se baseia na diferença dos níveis de cinza que compõe diferentes objetos de uma imagem.
+
+\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}) explicam que, no pré-processamento das imagens seguintes, a cor a ser tida como padrão durante a rotulação dos pixels é definida como a média temporal de todas as cores obtidas até então. Essa medida evita que mudanças bruscas no ambiente afetem o funcionamento do sistema. A segmentação do robô também utiliza a limiarização, e são segmentados os pixels cuja distância no espaço tricromático a cor de frente ou a de fundo do robô (definidas pelo usuário na inicialização do sistema) é inferior a um limiar. A área do robô é calculada pelo somatório dos seus pixels, sua posição é definida como sendo as coordenadas de seu centro de área, e sua orientação é definida como o ângulo formado pela semi-reta que tem como origem o centro de área da região do fundo do robô e passa pelo centro de área da região de sua frente. O processo utilizado na verificação de obstáculos é baseado em um sonar visual, onde são utilizados 18 feixes que saem do centro de área do robô em diferentes ângulos e vão percorrendo a imagem pixel a pixel. A varredura de cada feixe termina quando ele encontra um obstáculo ou quando atinge um dos limites da imagem. As coordenadas dos pontos de parada de cada feixe são guardadas em um vetor, que é passado para o sistema de controle juntamente com as características do robô.
+
+O sistema desenvolvido por \citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), pode ser visto na Figura~\ref{fig:triangulacao}.
+
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Processo de Extração de Características.}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/ref-teorico/triangulacao.png}
+   \label{fig:triangulacao}
+    \fonte{\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema})}
+\end{figure}
+
+
+\subsection{RGB}
+\label{subsec:rgb}
+
+\subsection{HSV}
+\label{subsec:hsv}
 
 
 %================================================================================
-\section{Seção3}
-\label{sec:EstimarF0}
+\section{OpenCV}
+\label{sec:opencv}
+
+A OpenCV (\textit{Open Source Computer Vision Library})
 
 
  
