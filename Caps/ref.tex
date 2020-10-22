@@ -79,22 +79,54 @@ O sistema desenvolvido por \citeauthor{andrade2006sistema} (\citeyear{andrade200
    \caption{Processo de Extração de Características.}
     \includegraphics[width = 0.8\textwidth]{Caps/Figs/ref-teorico/triangulacao.png}
    \label{fig:triangulacao}
-    \fonte{\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema})}
+    \fonte{\cite{andrade2006sistema}}
 \end{figure}
 
 
 \subsection{RGB}
 \label{subsec:rgb}
+\nomenclature{RGB}{\textit{Red, Green e Blue}}
+\nomenclature{CIE}{Comissão Internacional de Iluminação}
+
+Objetos que emitem luz visível são percebidos em função da soma das cores espectrais emitidas. Tal processo de formação é denominado aditivo. O processo aditivo pode ser interpretado como uma combinação variável em proporção de componentes monocromáticas nas faixas espectrais associadas às sensações de cor verde, vermelho e azul, as quais são responsáveis pela formação de todas as demais sensações de cores registradas pelo olho humano. Assim, as cores verde, vermelho e azul são ditas cores primárias. Este processo de geração suscitou a concepção de um modelo cromático denominado RGB (\textit{Red, Green e Blue}), para o qual a Comissão Internacional de Iluminação (CIE) estabeleceu as faixas de comprimento de onda das cores primárias~\cite{de2006introduccao}, visto na Figura~\ref{fig:modeloRGB}.
+
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Modelo RGB.}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/ref-teorico/modelo-RGB.png}
+   \label{fig:modeloRGB}
+    \fonte{\cite{de2006introduccao}}
+\end{figure}
 
 \subsection{HSV}
 \label{subsec:hsv}
+\nomenclature{HSV}{\textit{Hue, Saturation} e \textit{Value}}
+
+O espaço de cores HSV (\textit{Hue, Saturation} e \textit{Value}) particiona uma cor em matiz, saturação e intensidade, sendo a matiz a cor propriamente dita, a saturação identifica o quão forte é a cor, e a intensidade identifica a luminância da cor. O espaço de cores HSV forma um cone, com H variando de 0 a 360 graus e S e I variando de 0 a 100 por cento~\cite{penharbel2004filtro}. A Figura~\ref{fig:modeloHSV} permite visualizar esse espaço.
+
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Modelo HSV.}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/ref-teorico/modelo-HSV.png}
+   \label{fig:modeloHSV}
+    \fonte{\cite{penharbel2004filtro}}
+\end{figure}
+
+\citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), descreve que esse espaço de cores é propício para filtro que precisa separar cores independente da luminosidade. O grande problema de usar o espaço de cores HSV se dá pela necessidade de transformação de cada pixel da imagem, originalmente em RGB proveniente da câmera de vídeo, para o formato HSV, o que gasta tempo de processamento e que pode tornar o filtro computacionalmente ineficiente.
 
 
 %================================================================================
 \section{OpenCV}
 \label{sec:opencv}
+\nomenclature{OpenCV}{\textit{Open Source Computer Vision Library}}
+\nomenclature{GUI}{Interface Gráfica do Usuário}
 
-A OpenCV (\textit{Open Source Computer Vision Library})
+
+OpenCV (\textit{Open Source Computer Vision Library}) é uma biblioteca multiplataforma de código aberto, originalmente desenvolvida pela Intel, para o desenvolvimento de aplicativos na área de visão computacional. Essa possui módulos de processamento de imagens, estrutura de dados, álgebra linear e GUI (Interface Gráfica do Usuário) básica, além de mais de 350 algoritmos de visão computacional, como: filtros de imagem, calibração de câmera, reconhecimento de objetos, análise estrutural e outros.
+
+\citeauthor{bradski2008learning} (\citeyear{bradski2008learning}) afirma que a OpenCV foi desenvolvida com o intuito de eficiência computacional e com um grande foco em aplicações de tempo real. Esta é escrita em C/C++, porém hoje contém interfaces de desenvolvimento para diversas linguagens, tais como Python, Ruby, Matlab e outras.
+
+\citeauthor{baggio2015opencv} (\citeyear{baggio2015opencv}) complementa que desde seu lançamento suas funcionalidades vem sendo desenvolvidas pela comunidade científica, tornando esta biblioteca uma ferramenta poderosa no campo da visão computacional.
 
 
  
