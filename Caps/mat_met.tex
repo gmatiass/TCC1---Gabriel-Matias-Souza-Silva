@@ -65,7 +65,7 @@ Como visto na Figura~\ref{fig:RaspberryPi-CAM}, ele suporta diversos tipos de co
 \end{figure}
 \footnotetext{Disponível em: \url{https://raw.githubusercontent.com/SeeedDocument/Raspberry-Pi-4/master/img/hardware-overview-1400.jpg}. Acesso em: 8 set. 2020.}
 
-\nomenclature{HDMI}{High-Definition Multimedia Interface}
+\nomenclature{HDMI}{\textit{High-Definition Multimedia Interface}}
 
 %================================================================================
 \section{Robô Móvel}
@@ -120,11 +120,76 @@ Um sensor de imagem, comporta-se como a retina dos olhos, capta a luminosidade d
 Visão computacional é definida como sendo o conjunto de técnicas computacionais que estimam ou explicitam as propriedades geométricas e dinâmicas do mundo tridimensional a partir de imagens. Trata-se da obtenção automática de informação a respeito do ambiente disponibilizando-a ao sistema de controle, que decidirá qual o comportamento adotar. Utiliza-se de câmeras e plataformas onde essas imagens possam ser processadas, sendo considerado o tipo de informação relevante, a metodologia para extrair a informação e quais as representações empregadas para a atuação do robô.
 
 %================================================================================
+\section{Método de Visão Computacional YOLO (\textit{You Only Look Once})}
+\label{sec:matmetYOLO}
 
+Sabe-se que o YOLO é um algoritmo baseado em regressão. Isto é, ele não seleciona regiões de interesse da imagem, e sim, prevê classes e caixas delimitadoras para a imagem inteira em uma só execução do algoritmo. Esta implementação é comumente usada para detecção de objetos em tempo real, pois, em geral, eles trocam um pouco de precisão por grandes melhorias na velocidade~\cite{swiezewski2020}.
 
+O funcionamento básico do YOLO é visto na Figura~\ref{fig:yolo-funcionamento} e dado por:
+\begin{enumerate}
+    \item O algoritmo divide a imagem em um \textit{grid} de S x S células, que geralmente é uma grade 13x13. Porém, nas últimas implementações tem-se usado o tamanho 19x19. Cada uma dessas células é responsável por fazer a predição de 5 caixas delimitadoras (\textit{bounding boxes}), para caso haja mais de um objeto naquela célula (uma caixa delimitadora descreve o retângulo que cobre o objeto).
+    \item Retorna uma pontuação de confiança, isto é, o quanto de certeza o algoritmo tem que aquela caixa delimitadora contém um objeto. Essa pontuação não diz respeito de que tipo de objeto tem ali, apenas diz a respeito do formato da caixa em si. Quanto maior a confiança, mais grossa é a linha desenhada.
+    \item Para cada caixa a célula também faz a previsão de uma classe, fornecendo um valor de probabilidade para cada uma das classes possíveis que foram treinadas. Esta previsão é feita na CNN.
+    \item O valor de confiança para a caixa delimitadora e a predição da classe são combinados em uma pontuação final.
+\end{enumerate}
 
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Modelo de detecção do YOLO.}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/mat-met/YOLO-funcionamento.png}
+   \label{fig:yolo-funcionamento}
+    \fonte{\cite{Redmon_2016_CVPR}}
+\end{figure}
 
+É importante ressaltar que com uma grade 19x19 há 361 células, e para cada uma dessas células são detectados 5 caixas delimitadoras, o que resulta em 1805 no total. A maioria dessas caixas terá um valor de confiança extremamente baixo. Por isso, geralmente são consideradas apenas as caixas cuja pontuação final seja 30 por cento ou mais (\textit{threshold}).
 
+\subsection{Caixas Delimitadoras (\textit{Bounding Boxes})}
+\label{subsec:boundingboxes}
 
+\citeauthor{swiezewski2020} (\citeyear{swiezewski2020}) descreve cada caixa delimitadora em 4 variáveis, estas são:
+\begin{itemize}
+    \item Centro da caixa delimitadora ($b_x$, $b_y$);
+    \item Largura ($b_w$);
+    \item Altura ($b_h$);
+    \item Valor $c$, que é a classe correspondente ao objeto (pessoa, carro, etc).
+\end{itemize}
 
+Deve-se também considerar a probabilidade de existir um objeto na caixa delimitadora, que é representado como valor $p_c$.
 
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Caixas delimitadoras (\textit{bounding boxes}).}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/mat-met/bbox-1.png}
+   \label{fig:bbox1}
+    \fonte{\cite{swiezewski2020}}
+\end{figure}
+
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Estrutura de definição das \textit{bounding boxes}.}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/mat-met/bbox-2.png}
+   \label{fig:bbox2}
+    \fonte{\cite{swiezewski2020}}
+\end{figure}
+
+Na Figura~\ref{fig:bbox2}, observa-se o formato da estrutura (\textit{encoding}) da grade 19x19. Em cada célula vemos as cinco \textit{bounding boxes}, e para cada uma delas a probabilidade de existir um objeto ($p_c$), as variáveis descritivas ($b_x$, $b_y$, $b_w$, $b_h$) e oitenta probabilidades de classe. Originalmente o YOLO foi treinado com uma base de dados chamada COCO~\cite{lin2014microsoft}, e nela existem oitenta objetos diferentes.
+
+\subsection{Supressão Não-Máxima (\textit{Non-Max Supression})}
+\label{subsec:nonmax-supression}
+
+Um conceito importante sobre YOLO é a supressão não-máxima. Está técnica é implementada utilizando a biblioteca OpenCV (Seção~\ref{sec:opencv}). A maioria das células não vai conter um objeto, portanto, é necessário obter o valor $p_c$, que servirá para remover caixas com baixa probabilidade de conter um objeto e também caixas que possuem uma área compartilhada.
+
+\begin{figure}[!hbtp]
+  \centering
+   \caption{Supressão não-máxima (\textit{Non-Max Supression}).}
+    \includegraphics[width = 0.8\textwidth]{Caps/Figs/mat-met/nonmax-1-1024x472.png}
+   \label{fig:nonmax-supression}
+    \fonte{\cite{swiezewski2020}}
+\end{figure}
+
+\subsection{Âncoras (\textit{Anchor Boxes})}
+\label{subsec:anchorboxes}
+
+As âncoras (\textit{anchor boxes}), são retângulos de proporções pré-definidas usados para ter maior correspondência entre as caixas delimitadoras previstas e esperadas. Isto é, este algoritmo tem um conjunto de caixas delimitadoras para objetos específicos, que possuem tamanhos iniciais próximos aos tamanhos do objetos e serão redimensionados para o tamanho do objeto usando algumas saídas da rede neural. A CNN não deve prever o tamanho final do objeto, mas ajustar o tamanho da âncora mais próxima ao tamanho do objeto.
+
+O uso de âncoras torna o processo de aprendizagem mais fácil e permite a detecção em várias escalas especificando âncoras de tamanho variados.
