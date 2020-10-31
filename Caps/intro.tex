@@ -20,9 +20,15 @@ Portanto, temos a primeira etapa de desenvolvimento e utilização de um sistema
 \section{Justificativa}
 \label{sec:justi}
 
+Os cinco sentidos dos seres humanos são: olfato, tato, audição, paladar e visão. De todos eles, temos que concordar que a visão é o mais, ou pelo menos, um dos mais importantes. Por este motivo, "dar" o sentido da visão para uma máquina gera um resultado impressionante. Imagens estão em todo o lugar e a capacidade de reconhecer objetos, paisagens, rostos, sinais e gestos torna as máquinas muito mais úteis~\cite{antonello2014introduccao}.
+
 Este projeto visa dotar o robô com visão computacional e torná-lo autônomo, reduzindo o custo de uma câmera presente no sistema tradicional de triangulação.
 
-E devido a essa característica, o YOLO foi capaz de conseguir uma velocidade na detecção muito maior do que as técnicas concorrentes, sem perder em acurácia~\cite{alvesGabriel2020}.
+O algoritmo de visão computacional que será utilizado é o YOLO (\textit{You Only Look Once}), que é um método de detecção \textit{single pass}. Devido a essa característica, o YOLO foi capaz de conseguir uma velocidade na detecção muito maior do que as técnicas concorrentes, sem perder em acurácia~\cite{alvesGabriel2020}. É o estado da arte em sistemas de reconhecimento de objetos em tempo real.
+
+É totalmente código aberto e livre de licenças de uso, ou seja, tudo nesta tecnologia (o código-fonte, a arquitetura da rede neural, os pesos com os quais esta rede é executada e os \textit{datasets} usados para treinar a rede) é livre e pode ser usado por qualquer um, de qualquer forma.
+
+
 
 %================================================================================
 \section{Objetivos}

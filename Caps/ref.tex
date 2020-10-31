@@ -25,7 +25,7 @@ Para \citeauthor{rogeralex1999} (\citeyear{rogeralex1999}), a primeira etapa do 
 \subsection{Aquisição da Imagem}
 \label{subsec:aquisImagem}
 
-Nesta etapa necessita-se de um dispositivo sensível a faixa do espectro eletromagnético desejado, também conhecido como câmera. Estes equipamentos que compõe o ambiente produzem em sua saída um sinal elétrico proporcional a quantidade de energia captada. Esse sinal elétrico, precisa então passar por um conversor analógico-digital para que possa ser processado pelo computador \cite{rogeralex1999}.
+Nesta etapa necessita-se de um dispositivo sensível a faixa do espectro eletromagnético desejado, também conhecido como câmera. Estes equipamentos, que compõe o ambiente, produzem em sua saída um sinal elétrico proporcional a quantidade de energia captada. Esse sinal elétrico, precisa então passar por um conversor analógico-digital para que possa ser processado pelo computador \cite{rogeralex1999}.
 
 \subsection{Pré-processamento da Imagem}
 \label{subsec:preProcImagem}
@@ -61,10 +61,10 @@ As técnicas de reconhecimento de padrões, tratam da identificação de partes 
 \section{Métodos de Visão Computacional}
 \label{sec:metodos-visaoComputacional}
 
-Diversas técnicas para a segmentação de imagens em sistemas de visão computacional foram desenvolvidas de acordo com o objetivo do RMA. Algumas utilizam duas câmeras e outros apenas uma, e estas podem estar dispostas fixas ao robô ou no ambiente. Para \citeauthor{araujo2008reconhecimento} (\citeyear{araujo2008reconhecimento}), os métodos de visão computacional se agrupam em três formas de reconhecimento: baseado em cores, baseado em forma, e baseado em cores e forma.
+Diversas técnicas para a segmentação de imagens em sistemas de visão computacional foram desenvolvidas de acordo com o objetivo do RMA. Algumas utilizam duas câmeras e outros apenas uma, e estas podem estar dispostas fixas ao robô ou no ambiente. Para \citeauthor{araujo2008reconhecimento} (\citeyear{araujo2008reconhecimento}), os métodos de visão computacional se agrupam em três formas de reconhecimento: baseado em cores, baseado em forma e, baseado em cores e forma.
 
 \begin{itemize}
-    \item \textbf{Sistema baseado em cores:} A câmera registra a cor da luz refletida pela superfície, que depende tanto da cor da superfície como da cor da iluminação. Entretanto, a cor da iluminação pode variar bastante, como, por exemplo, é azul para iluminação fluorescente, laranja para incandescentes, e vermelha ao pôr do sol~\cite{konzen2007problema}.
+    \item \textbf{Sistema baseado em cores:} A câmera registra a cor da luz refletida pela superfície, que depende tanto da cor da superfície como da cor da iluminação. Entretanto, a cor da iluminação pode variar bastante, como, por exemplo, é azul para iluminação fluorescente, laranja para incandescentes e vermelha ao pôr do sol~\cite{konzen2007problema}.
     
     \item \textbf{Sistema baseado em forma:} A câmera registra determinadas formas geométricas, que são utilizadas para detectar unicamente cada objeto~\cite{garcia2007arcaboucco}.
     
@@ -72,7 +72,7 @@ Diversas técnicas para a segmentação de imagens em sistemas de visão computa
 \end{itemize}
 
 
-\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), propõe um sistema onde duas câmeras são dispostas no ambiente e executam uma triangulação. Ainda cita que, \citeauthor{souza2003desenvolvimento} (\citeyear{souza2003desenvolvimento}) propõe um sistema baseado na limiarização das cores dos componentes da imagem através das proporções de seus componentes vermelho, verde e azul, e; \citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), utilizam os componentes vermelho, verde e azul dos \textit{pixels} para obter o tom, saturação, e a intensidade das cores, a fim de efetuar a limiarização sobre este último espaço de valores.
+\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), propõe um sistema onde duas câmeras são dispostas no ambiente e executam uma triangulação. Ainda cita que, \citeauthor{souza2003desenvolvimento} (\citeyear{souza2003desenvolvimento}) propõe um sistema baseado na limiarização das cores dos componentes da imagem através das proporções de seus componentes vermelho, verde e azul, e; \citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), utilizam os componentes vermelho, verde e azul dos \textit{pixels} para obter o tom, saturação e a intensidade das cores, a fim de efetuar a limiarização sobre este último espaço de valores.
 
 \subsection{Triangulação com Câmeras no Ambiente}
 \label{subsec:triangulacao}
@@ -81,7 +81,7 @@ Uma das propriedades mais relevantes deste sistema é o fato de que ele opera ex
 
 A princípio, a imagem capturada pela câmera é pré-processada pelo sistema, visando eliminar seu fundo. Para isso, pode-se utilizar técnicas de limiarização, que é o processo de segmentação de imagens que se baseia na diferença dos níveis de cinza que compõe diferentes objetos de uma imagem.
 
-\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}) explicam que, no pré-processamento das imagens seguintes, a cor a ser tida como padrão durante a rotulação dos \textit{pixels} é definida como a média temporal de todas as cores obtidas até então. Essa medida evita que mudanças bruscas no ambiente afetem o funcionamento do sistema. A segmentação do robô também utiliza a limiarização, e são segmentados os \textit{pixels} cuja distância no espaço tricromático a cor de frente ou a de fundo do robô (definidas pelo usuário na inicialização do sistema) é inferior a um limiar. A área do robô é calculada pelo somatório dos seus \textit{pixels}, sua posição é definida como sendo as coordenadas de seu centro de área, e sua orientação é definida como o ângulo formado pela semi-reta que tem como origem o centro de área da região do fundo do robô e passa pelo centro de área da região de sua frente. O processo utilizado na verificação de obstáculos é baseado em um sonar visual, onde são utilizados 18 feixes que saem do centro de área do robô em diferentes ângulos e vão percorrendo a imagem \textit{pixel} a \textit{pixel}. A varredura de cada feixe termina quando ele encontra um obstáculo ou quando atinge um dos limites da imagem. As coordenadas dos pontos de parada de cada feixe são guardadas em um vetor, que é passado para o sistema de controle juntamente com as características do robô.
+\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}) explicam que, no pré-processamento das imagens seguintes, a cor a ser tida como padrão durante a rotulação dos \textit{pixels} é definida como a média temporal de todas as cores obtidas até então. Essa medida evita que mudanças bruscas no ambiente afetem o funcionamento do sistema. A segmentação do robô também utiliza a limiarização, e são segmentados os \textit{pixels}, cuja distância no espaço tricromático a cor de frente ou a de fundo do robô (definidas pelo usuário na inicialização do sistema), é inferior a um limiar. A área do robô é calculada pelo somatório dos seus \textit{pixels}, sua posição é definida como sendo as coordenadas de seu centro de área, e sua orientação é definida como o ângulo formado pela semi-reta que tem como origem o centro de área da região do fundo do robô e passa pelo centro de área da região de sua frente. O processo utilizado na verificação de obstáculos é baseado em um sonar visual, onde são utilizados 18 feixes que saem do centro de área do robô em diferentes ângulos e vão percorrendo a imagem \textit{pixel} a \textit{pixel}. A varredura de cada feixe termina quando ele encontra um obstáculo ou quando atinge um dos limites da imagem. As coordenadas dos pontos de parada de cada feixe são guardadas em um vetor, que é passado para o sistema de controle juntamente com as características do robô.
 
 O sistema desenvolvido por \citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), pode ser visto na Figura~\ref{fig:triangulacao}.
 
@@ -128,7 +128,7 @@ O espaço de cores HSV (\textit{Hue, Saturation} e \textit{Value}) particiona um
 \subsection{Histogramas}
 \label{subsec:histogramas}
 
-Os histogramas são definidos por~\citeauthor{marengoni2009tutorial} (\citeyear{marengoni2009tutorial}) como ferramentas de processamento de imagens que possuem grande aplicação prática. Os histogramas são determinados a partir de valores de intensidade dos \textit{pixels}. Entre as principais aplicações dos histogramas estão a melhora da definição de uma imagem, a compressão de imagens, a segmentação de imagens ou ainda a descrição de uma imagem.
+Os histogramas são definidos por~\citeauthor{marengoni2009tutorial} (\citeyear{marengoni2009tutorial}) como ferramentas de processamento de imagens que possuem grande aplicação prática. Estes são determinados a partir de valores de intensidade dos \textit{pixels}. Entre as principais aplicações dos histogramas estão, a melhora da definição de uma imagem, a compressão de imagens, a segmentação de imagens ou ainda a descrição de uma imagem.
 
 Para melhor entendimento, \citeauthor{hoshiro2008processamento} (\citeyear{hoshiro2008processamento}) define o histograma como semelhante a um gráfico de frequências, onde cada pilha representa uma cor identificada em um \textit{pixel} de um uma imagem. É muito utilizado para cálculos estatísticos em imagens e recuperação de imagens.
 
@@ -176,7 +176,7 @@ O processo de rastreamento é um processo de reconhecer um padrão em uma sequê
 \subsubsection{\textit{Meanshift}}
 \label{subsubsec:meanshift}
 
-O algoritmo \textit{Meanshift} (deslocamento médio) é um método robusto de análise de espaço para localizar os máximos de uma função de densidade de um conjunto de dados. Este é um processo fácil para distribuições contínuas, porém para conjuntos de dados discretos esse problema é um pouco menos trivial. O termo robusto é usado aqui com seu sentido estatístico, isto é, o algoritmo ignora pontos de dados que estão longe dos picos. Ele faz isso processando apenas pontos em uma janela local de dados e, em seguida, movendo essa janela~\cite{bradski2008learning}.
+O algoritmo \textit{Meanshift} (deslocamento médio) é um método robusto de análise de espaço para localizar os máximos de uma função de densidade de um conjunto de dados. Este é um processo fácil para distribuições contínuas, porém, para conjuntos de dados discretos esse problema é um pouco menos trivial. O termo robusto é usado aqui com seu sentido estatístico, isto é, o algoritmo ignora pontos de dados que estão longe dos picos. Ele faz isso processando apenas pontos em uma janela local de dados e, em seguida, movendo essa janela~\cite{bradski2008learning}.
 
 Ele executa da seguinte maneira:
 \begin{enumerate}
@@ -202,14 +202,14 @@ A Figura~\ref{fig:meanshift} demonstra o algoritmo \textit{Meanshift} em ação.
     \fonte{\cite{bradski2008learning}}
 \end{figure}
 
-Uma das áreas de aplicação deste algoritmo, em visão computacional, é o \textit{tracking} de objetos coloridos, onde utiliza distribuições de probabilidade para seguir objetos em \textit{frames} consecutivos. Para distribuições de probabilidade alteradas dinamicamente, que representam objetos em movimento na sequência de \textit{frames}, o algoritmo \textit{Meanshift} tem de ser modificado para se adaptar dinamicamente às alterações de tamanho e posição do objeto, nas distribuições de probabilidade~\cite{peixoto2012deteccao}. O algoritmo que consegue desempenhar tal função é chamado \textit{Camshift}, e este será abordado na Seção~\ref{subsubsec:camshift}.
+Uma das áreas de aplicação deste algoritmo em visão computacional, é o \textit{tracking} de objetos coloridos, onde utiliza distribuições de probabilidade para seguir objetos em \textit{frames} consecutivos. Para distribuições de probabilidade alteradas dinamicamente, que representam objetos em movimento na sequência de \textit{frames}, o algoritmo \textit{Meanshift} tem de ser modificado para se adaptar dinamicamente às alterações de tamanho e posição do objeto, nas distribuições de probabilidade~\cite{peixoto2012deteccao}. O algoritmo que consegue desempenhar tal função é chamado \textit{Camshift}, e este será abordado na Seção~\ref{subsubsec:camshift}.
 
 \subsubsection{\textit{Camshift}}
 \label{subsubsec:camshift}
 
-O \textit{Camshift} é um algoritmo robusto, baseado no algoritmo \textit{Meanshift} (Seção~\ref{subsubsec:meanshift}). Para a utilização deste algoritmo é necessário o cálculo da função densidade de probabilidade. Esta pode ser determinada utilizando qualquer método que associe o valor de um \textit{pixel} com a probabilidade deste \textit{pixel} pertencer ao objeto alvo. Um método comum é o histograma projeção de fundo (\textit{Histogram Back-Projection}). Esta técnica recorre a comparação de histogramas, ou seja, à relação entre o histograma do objeto selecionado (janela inicial) e o histograma do \textit{frame} alvo. Desta forma, pretende-se aumentar a diferença entre o \textit{background} e o objeto, levando a uma localização mais fiel deste. O histograma projeção de fundo utiliza o canal matiz (\textit{hue}) no espaço de cor HSV, no entanto qualquer histograma multidimensional a partir de qualquer espaço de cor pode ser utilizado~\cite{peixoto2012deteccao}.
+O \textit{Camshift} é um algoritmo robusto, baseado no algoritmo \textit{Meanshift} (Seção~\ref{subsubsec:meanshift}). Para a utilização deste algoritmo, é necessário o cálculo da função densidade de probabilidade. Esta pode ser determinada utilizando qualquer método que associe o valor de um \textit{pixel} com a probabilidade deste \textit{pixel} pertencer ao objeto alvo. Um método comum é o histograma projeção de fundo (\textit{Histogram Back-Projection}). Esta técnica recorre a comparação de histogramas, ou seja, à relação entre o histograma do objeto selecionado (janela inicial) e o histograma do \textit{frame} alvo. Desta forma, pretende-se aumentar a diferença entre o \textit{background} e o objeto, levando a uma localização mais fiel deste. O histograma projeção de fundo utiliza o canal matiz (\textit{hue}) no espaço de cor HSV, no entanto qualquer histograma multidimensional a partir de qualquer espaço de cor pode ser utilizado~\cite{peixoto2012deteccao}.
 
-Para viabilizar o \textit{tracking} com o \textit{Camshift} é ainda necessário que o tamanho da janela se adapte ao alvo que está a ser seguido. Uma vez que o tamanho ideal da janela varia com a distância do objeto em relação a câmera. Esta adaptação é feita com base no momento de ordem zero, que pode ser interpretado como a "área" da distribuição encontrada sob a janela de pesquisa. Desta forma, o comprimento e a altura da janela são determinados em função deste momento, que consiste na soma das probabilidades de todos os \textit{pixels} na região de interesse. Como produto deste método resultam não só as coordenadas do \textit{pixel} centroide do alvo, correspondente à localização do \textit{Meanshift}, mas também a informação respeitante à área da janela ~\cite{peixoto2012deteccao}.
+Para viabilizar o \textit{tracking} com o \textit{Camshift}, é ainda necessário que o tamanho da janela se adapte ao alvo que está a ser seguido. Uma vez que o tamanho ideal da janela varia com a distância do objeto em relação a câmera. Esta adaptação é feita com base no momento de ordem zero, que pode ser interpretado como a "área" da distribuição encontrada sob a janela de pesquisa. Desta forma, o comprimento e a altura da janela são determinados em função deste momento, que consiste na soma das probabilidades de todos os \textit{pixels} na região de interesse. Como produto deste método resultam não só as coordenadas do \textit{pixel} centroide do alvo, correspondente à localização do \textit{Meanshift}, mas também a informação respeitante à área da janela ~\cite{peixoto2012deteccao}.
 
 O algoritmo \textit{Camshift} é definido pela~\citeauthor{intel2001corporation} (\citeyear{intel2001corporation}), como:
 
@@ -221,7 +221,7 @@ O algoritmo \textit{Camshift} é definido pela~\citeauthor{intel2001corporation}
     \item Para o próximo \textit{frame}, centralize a janela de busca na localização encontrada no passo 4 e redimensione a janela em função do momento de ordem zero. Retorne ao passo 3.
 \end{enumerate}
 
-Para \citeauthor{peixoto2012deteccao} (\citeyear{peixoto2012deteccao}), o passo inicial é estabelecer a área de interesse, para a qual é calculado o histograma que será usado como referência. A seguir centra-se a janela do \textit{Meanshift} no objeto que se pretende seguir e determina-se a distribuição de probabilidades desta região. A partir daqui o \textit{Meanshift} itera, até não haver alteração na posição, ou a alteração ser inferior a um valor previamente definido. Neste ponto estabelece a nova janela de procura e torna-se a repetir todo o processo enquanto se pretende fazer \textit{tracking} deste objeto. Um fluxograma para melhor visualização é representado pela Figura~\ref{fig:camshift}.
+Para \citeauthor{peixoto2012deteccao} (\citeyear{peixoto2012deteccao}), o passo inicial é estabelecer a área de interesse, para a qual é calculado o histograma que será usado como referência. A seguir centra-se a janela do \textit{Meanshift} no objeto que se pretende seguir e determina-se a distribuição de probabilidades desta região. A partir daqui o \textit{Meanshift} itera até não haver alteração na posição, ou a alteração ser inferior a um valor previamente definido. Neste ponto, estabelece a nova janela de procura e torna-se a repetir todo o processo enquanto se pretende fazer \textit{tracking} deste objeto. Um fluxograma para melhor visualização é representado pela Figura~\ref{fig:camshift}.
 
 \begin{figure}[!hbtp]
   \centering
@@ -247,7 +247,7 @@ Nessa técnica são utilizadas as características \textit{Haar}, as quais podem
     \fonte{\cite{lienhart2003empirical}}
 \end{figure}
 
-A maior motivação para o uso de características de um objeto em detrimento de todos os seus \textit{pixels} é que a velocidade de análise de uma imagem baseada no conjunto de suas principais características é muito maior. Isto porque o número de características é substancialmente inferior ao número total de \textit{pixels} de um objeto~\cite{peixoto2012deteccao}.
+A maior motivação para o uso de características de um objeto em detrimento de todos os seus \textit{pixels} é que, a velocidade de análise de uma imagem baseada no conjunto de suas principais características é muito maior. Isto porque o número de características é substancialmente inferior ao número total de \textit{pixels} de um objeto~\cite{peixoto2012deteccao}.
 
 \citeauthor{viola2001rapid} (\citeyear{viola2001rapid}) propõe três tipos de características e seus valores, sendo elas:
 \begin{itemize}
@@ -256,7 +256,7 @@ A maior motivação para o uso de características de um objeto em detrimento de
     \item O valor de uma características de quatro retângulos é a diferença entre os pares diagonais.
 \end{itemize}
 
-Para simplificar o entendimento, a característica é determinada pela subtração do valor da soma de \textit{pixels} brancos com o valor da soma dos \textit{pixels} pretos. Se a características estiver acima de um limiar, dado no aprendizado do algoritmo, ela é definida como presente.
+Para simplificar o entendimento, a característica é determinada pela subtração do valor da soma de \textit{pixels} brancos com o valor da soma dos \textit{pixels} pretos. Se a característica estiver acima de um limiar, dado no aprendizado do algoritmo, ela é definida como presente.
 
 Funções de classificação tem como objetivo a classificação de objeto a partir do conjunto das duas principais características. Para encontrar essas características podem ser utilizados vários tipo de algoritmo de aprendizagem~\cite{peixoto2012deteccao}.
 
