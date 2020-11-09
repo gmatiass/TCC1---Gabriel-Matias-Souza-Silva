@@ -20,7 +20,7 @@ Um sistema de visão computacional é composto por etapas, sendo elas: definiç�
 \subsection{Definição do Problema}
 \label{subsec:defProblema}
 
-Para \citeauthor{rogeralex1999} (\citeyear{rogeralex1999}), a primeira etapa do processo é a definição do problema, ou seja, qual é o objetivo que o sistema deve cumprir. Este pode ser a identificação de peças numa esteira rolante, a identificação de impressões digitais ou o reconhecimento de obstáculos na trajetória de um robô móvel. Se o sistema tiver sido bem planejado, chega-se a última etapa do processo, que é o resultado, ou seja, qual é a peça, a quem pertence a impressão digital ou qual é o obstáculo do robô.
+Para \citeauthor{rogeralex1999} (\citeyear{rogeralex1999}), a primeira etapa do processo é a definição do problema, ou seja, qual é o objetivo que o sistema deve cumprir. Essa pode ser a identificação de peças numa esteira rolante, a identificação de impressões digitais ou o reconhecimento de obstáculos na trajetória de um robô móvel. Se o sistema tiver sido bem planejado, chega-se a última etapa do processo, que é o resultado, ou seja, qual é a peça, a quem pertence a impressão digital ou qual é o obstáculo do robô.
 
 \subsection{Aquisição da Imagem}
 \label{subsec:aquisImagem}
@@ -39,9 +39,9 @@ Essas operações podem ser realizadas tanto no domínio espacial quanto no dom�
 
 \citeauthor{heinen2004navegaccao} (\citeyear{heinen2004navegaccao}) afirma que em processamento de imagens, segmentar consiste em identificar e extrair estruturas homogêneas presentes em uma cena, sendo a eficiência deste processo diretamente relacionada ao desempenho final da análise automática de imagens. É importante enfatizar que essa é uma etapa crítica do processo.
 
-Esta técnica é utilizada para reduzir o esforço computacional, reduzindo as informações da imagem. Para~\citeauthor{rudek2001visao} (\citeyear{rudek2001visao}), a ideia utilizada na segmentação (\textit{thresholding}) é dividir a imagem em regiões que correspondem a unidades estruturais da cena, ou que distinguem os objetos de interesse, separando os objetos da imagem (\textit{foreground}) das informações de fundo da imagem (\textit{background}). Com esta abordagem, minimiza-se o tamanho do espaço de onde as informações são retiradas, diminuindo o esforço computacional necessário para tratar a imagem.
+Essa técnica é utilizada para reduzir o esforço computacional, reduzindo as informações da imagem. Para~\citeauthor{rudek2001visao} (\citeyear{rudek2001visao}), a ideia utilizada na segmentação (\textit{thresholding}) é dividir a imagem em regiões que correspondem a unidades estruturais da cena, ou que distinguem os objetos de interesse, separando os objetos da imagem (\textit{foreground}) das informações de fundo da imagem (\textit{background}). Com essa abordagem, minimiza-se o tamanho do espaço de onde as informações são retiradas, diminuindo o esforço computacional necessário para tratar a imagem.
 
-A dificuldade normalmente encontrada está no fato de não haver conhecimento a priori do número e tipo de estruturas presentes na imagem. Estas são identificadas a partir de características como forma, geometria, topologia, textura, cor ou brilho, sendo escolhidas aquelas que possibilitam melhor distinção~\cite{heinen2004navegaccao}.
+A dificuldade normalmente encontrada está no fato de não haver conhecimento a priori do número e tipo de estruturas presentes na imagem. Essas são identificadas a partir de características como forma, geometria, topologia, textura, cor ou brilho, sendo escolhidas aquelas que possibilitam melhor distinção~\cite{heinen2004navegaccao}.
 
 \subsection{Identificação do Objeto}
 \label{subsec:idObjeto}
@@ -55,7 +55,7 @@ De forma análoga, a perda de informações ou deformações, podem ser ocasiona
 \subsection{Reconhecimento de Padrões}
 \label{subsec:recPadroes}
 
-As técnicas de reconhecimento de padrões, tratam da identificação de partes da imagem que possuem semelhanças. Uma grande quantidade de ferramentas matemáticas e computacionais, tem sido desenvolvidas para permitir que objetos possam ser extraídos e agrupados em classes específicas de informações. Uma boa representação da forma do objeto, gera facilidades para que ele seja armazenado, transmitido, comparado, reconhecido ou mesmo entendido. A representação deve ser gerada de acordo com regras simples e precisas. Geralmente uma forma é descrita em termos de número de componentes, primitivas e relacionamentos entre estes componentes~\cite{rudek2001visao}.
+As técnicas de reconhecimento de padrões tratam da identificação de partes da imagem que possuem semelhanças. Uma grande quantidade de ferramentas matemáticas e computacionais tem sido desenvolvidas para permitir que objetos possam ser extraídos e agrupados em classes específicas de informações. Uma boa representação da forma do objeto gera facilidades para que ele seja armazenado, transmitido, comparado, reconhecido ou mesmo entendido. A representação deve ser gerada de acordo com regras simples e precisas. Geralmente, uma forma é descrita em termos de número de componentes primitivas e relacionamentos entre estes componentes~\cite{rudek2001visao}.
 
 %================================================================================
 \section{Métodos de Visão Computacional}
@@ -72,7 +72,7 @@ Diversas técnicas para a segmentação de imagens em sistemas de visão computa
 \end{itemize}
 
 
-\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), propõe um sistema onde duas câmeras são dispostas no ambiente e executam uma triangulação. Ainda cita que, \citeauthor{souza2003desenvolvimento} (\citeyear{souza2003desenvolvimento}) propõe um sistema baseado na limiarização das cores dos componentes da imagem através das proporções de seus componentes vermelho, verde e azul, e; \citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), utilizam os componentes vermelho, verde e azul dos \textit{pixels} para obter o tom, saturação e a intensidade das cores, a fim de efetuar a limiarização sobre este último espaço de valores.
+\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), propõe um sistema onde duas câmeras são dispostas no ambiente e executam uma triangulação. Ainda citam que, \citeauthor{souza2003desenvolvimento} (\citeyear{souza2003desenvolvimento}) propõe um sistema baseado na limiarização das cores dos componentes da imagem através das proporções de seus componentes vermelho, verde e azul, e; \citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), utilizam os componentes vermelho, verde e azul dos \textit{pixels} para obter o tom, saturação e a intensidade das cores a fim de efetuar a limiarização sobre este último espaço de valores.
 
 \subsection{Triangulação com Câmeras no Ambiente}
 \label{subsec:triangulacao}
@@ -81,7 +81,7 @@ Uma das propriedades mais relevantes deste sistema é o fato de que ele opera ex
 
 A princípio, a imagem capturada pela câmera é pré-processada pelo sistema, visando eliminar seu fundo. Para isso, pode-se utilizar técnicas de limiarização, que é o processo de segmentação de imagens que se baseia na diferença dos níveis de cinza que compõe diferentes objetos de uma imagem.
 
-\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}) explicam que, no pré-processamento das imagens seguintes, a cor a ser tida como padrão durante a rotulação dos \textit{pixels} é definida como a média temporal de todas as cores obtidas até então. Essa medida evita que mudanças bruscas no ambiente afetem o funcionamento do sistema. A segmentação do robô também utiliza a limiarização, e são segmentados os \textit{pixels}, cuja distância no espaço tricromático a cor de frente ou a de fundo do robô (definidas pelo usuário na inicialização do sistema), é inferior a um limiar. A área do robô é calculada pelo somatório dos seus \textit{pixels}, sua posição é definida como sendo as coordenadas de seu centro de área, e sua orientação é definida como o ângulo formado pela semi-reta que tem como origem o centro de área da região do fundo do robô e passa pelo centro de área da região de sua frente. O processo utilizado na verificação de obstáculos é baseado em um sonar visual, onde são utilizados 18 feixes que saem do centro de área do robô em diferentes ângulos e vão percorrendo a imagem \textit{pixel} a \textit{pixel}. A varredura de cada feixe termina quando ele encontra um obstáculo ou quando atinge um dos limites da imagem. As coordenadas dos pontos de parada de cada feixe são guardadas em um vetor, que é passado para o sistema de controle juntamente com as características do robô.
+\citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}) explicam que, no pré-processamento das imagens seguintes, a cor a ser tida como padrão durante a rotulação dos \textit{pixels} é definida como a média temporal de todas as cores obtidas até então. Essa medida evita que mudanças bruscas no ambiente afetem o funcionamento do sistema. A segmentação do robô também utiliza a limiarização, e são segmentados os \textit{pixels}, cuja distância no espaço tricromático a cor de frente ou a de fundo do robô (definidas pelo usuário na inicialização do sistema), é inferior a um limiar. A área do robô é calculada pelo somatório dos seus \textit{pixels}, sua posição é definida como sendo as coordenadas de seu centro de área e sua orientação é definida como o ângulo formado pela semi-reta que tem como origem o centro de área da região do fundo do robô, e passa pelo centro de área da região de sua frente. O processo utilizado na verificação de obstáculos é baseado em um sonar visual, onde são utilizados 18 feixes que saem do centro de área do robô em diferentes ângulos e vão percorrendo a imagem \textit{pixel} a \textit{pixel}. A varredura de cada feixe termina quando ele encontra um obstáculo ou quando atinge um dos limites da imagem. As coordenadas dos pontos de parada de cada feixe são guardadas em um vetor, que é passado para o sistema de controle juntamente com as características do robô.
 
 O sistema desenvolvido por \citeauthor{andrade2006sistema} (\citeyear{andrade2006sistema}), pode ser visto na Figura~\ref{fig:triangulacao}.
 
@@ -113,7 +113,7 @@ Objetos que emitem luz visível são percebidos em função da soma das cores es
 \label{subsec:hsv}
 \nomenclature{HSV}{\textit{Hue, Saturation} e \textit{Value}}
 
-O espaço de cores HSV (\textit{Hue, Saturation} e \textit{Value}) particiona uma cor em matiz, saturação e intensidade, sendo a matiz a cor propriamente dita, a saturação identifica o quão forte é a cor, e a intensidade identifica a luminância da cor. O espaço de cores HSV forma um cone, com H variando de 0 a 360 graus e S e I variando de 0 a 100 por cento~\cite{penharbel2004filtro}. A Figura~\ref{fig:modeloHSV} permite visualizar esse espaço.
+O espaço de cores HSV (\textit{Hue, Saturation} e \textit{Value}) particiona uma cor em matiz, saturação e intensidade, sendo a matiz a cor propriamente dita, a saturação identifica o quão forte ela é e a intensidade identifica a luminância da mesma. O espaço de cores HSV forma um cone, com H variando de 0 a 360 graus e, S e V variando de 0 a 100 por cento~\cite{penharbel2004filtro}. A Figura~\ref{fig:modeloHSV} permite visualizar esse espaço.
 
 \begin{figure}[!hbtp]
   \centering
@@ -123,32 +123,34 @@ O espaço de cores HSV (\textit{Hue, Saturation} e \textit{Value}) particiona um
     \fonte{\cite{penharbel2004filtro}}
 \end{figure}
 
-\citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), descreve que esse espaço de cores é propício para filtro que precisa separar cores independente da luminosidade. O grande problema de usar o espaço de cores HSV se dá pela necessidade de transformação de cada \textit{pixel} da imagem, originalmente em RGB proveniente da câmera de vídeo, para o formato HSV, o que gasta tempo de processamento e que pode tornar o filtro computacionalmente ineficiente.
+\citeauthor{penharbel2004filtro} (\citeyear{penharbel2004filtro}), descreve que esse espaço de cores é propício para filtros que precisam separar cores, independente da luminosidade. O grande problema de usar o espaço de cores HSV advém da necessidade de transformar cada \textit{pixel} da imagem, originalmente em RGB proveniente da câmera de vídeo, para o formato HSV, o que gasta tempo de processamento e que pode tornar o filtro computacionalmente ineficiente.
 
 \subsection{Histogramas}
 \label{subsec:histogramas}
 
-Os histogramas são definidos por~\citeauthor{marengoni2009tutorial} (\citeyear{marengoni2009tutorial}) como ferramentas de processamento de imagens que possuem grande aplicação prática. Estes são determinados a partir de valores de intensidade dos \textit{pixels}. Entre as principais aplicações dos histogramas estão, a melhora da definição de uma imagem, a compressão de imagens, a segmentação de imagens ou ainda a descrição de uma imagem.
+Os histogramas são definidos por~\citeauthor{marengoni2009tutorial} (\citeyear{marengoni2009tutorial}) como ferramentas de processamento de imagens que possuem grande aplicação prática. Esses são determinados a partir de valores de intensidade dos \textit{pixels}. Entre as principais aplicações dos histogramas estão, a melhora da definição de uma imagem, a compressão de imagens, a segmentação de imagens ou ainda a descrição de uma imagem.
 
-Para melhor entendimento, \citeauthor{hoshiro2008processamento} (\citeyear{hoshiro2008processamento}) define o histograma como semelhante a um gráfico de frequências, onde cada pilha representa uma cor identificada em um \textit{pixel} de um uma imagem. É muito utilizado para cálculos estatísticos em imagens e recuperação de imagens.
+Para melhor entendimento, \citeauthor{hoshiro2008processamento} (\citeyear{hoshiro2008processamento}) define o histograma como semelhante a um gráfico de frequências, onde cada pilha representa uma cor identificada em um \textit{pixel} de uma imagem. Isso é muito utilizado para cálculos estatísticos e recuperação de imagens.
 
-O histograma de uma imagem I, cujos valores de intensidade estejam entre 0 e G é definido pela Equação~\ref{eq:defHistograma}:
+O histograma de uma imagem $I$, cujos valores de intensidade estejam entre $0$ e $G$ $(0\leq k\leq G)$, é definido pela Equação~\ref{eq:defHistograma}:
 \begin{equation}
 \label{eq:defHistograma}
     h(I_k) = n_k
 \end{equation}
+onde $I_k$ é um valor de intensidade $k$ da imagem $I$ e $n_k$ é o número de \textit{pixels} na imagem $I$ que possuem a intensidade $k$.
 
-onde $I_k$ é um valor de intensidade $k$, $(0\leq k\leq G)$ da imagem I e $n_k$ é o número de \textit{pixels} na imagem I que possuem a intensidade k. É possível normalizar um histograma, representando os valores de em termos de porcentagem, como mostrado na Equação~\ref{eq:normHistograma}:
+É possível normalizar um histograma representando os valores de $I_k$ em termos de porcentagem, como mostrado na Equação~\ref{eq:normHistograma}:
 \begin{equation}
 \label{eq:normHistograma}
     p(I_k) = \frac{h(I_k)}{n} = \frac{n_k}{n}
 \end{equation}
+onde $n$ é o número de \textit{pixels} na imagem.
 
-onde $n$ é o número de \textit{pixels} na imagem. A Figura~\ref{fig:modeloHistrograma} mostra como um histograma é determinado.
+A Figura~\ref{fig:modeloHistrograma} mostra como um histograma é determinado.
 
 \begin{figure}[!hbtp]
   \centering
-   \caption{À esquerda uma imagem I, ao centro o histograma da imagem em valores (h(I)) e em porcentagem (p(I)), à direita uma representação do histograma de forma gráfica.}
+   \caption{À esquerda uma imagem $I$, ao centro o histograma da imagem em valores ($h(I)$) e em porcentagem ($p(I)$), à direita uma representação do histograma de forma gráfica.}
     \includegraphics[width = 0.8\textwidth]{Caps/Figs/ref-teorico/histogram.png}
    \label{fig:modeloHistrograma}
     \fonte{\cite{marengoni2009tutorial}}
